@@ -1,6 +1,6 @@
 {
   "name": "cli-interface",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Interface to decouple executables from library code",
   "author": "muji <noop@xpm.io>",
   "repository": {
@@ -22,7 +22,7 @@
     "decouple"
   ],
   "dependencies": {
-    "cli-command": "~0.8.7"
+    "cli-command": "~0.8.8"
   },
   "devDependencies": {
     "mocha": "~1.17.0",
