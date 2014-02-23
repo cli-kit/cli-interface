@@ -64,6 +64,8 @@ var program = interface(require('../package.json'));
 program.parse();
 ```
 
+Just `require` your main file (main.js) and pass an arguments array to `parse()` to assert on your program's behaviour.
+
 ## License
 
 Everything is [MIT](http://en.wikipedia.org/wiki/MIT_License). Read the [license](/LICENSE) if you feel inclined.
