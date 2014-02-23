@@ -18,8 +18,8 @@ var Interface = function(pkg, name, description) {
   this.program = cli(pkg, name, description);
   this.configure.call(this.program);
   this.use.call(this.program);
-  this.commands.call(this.program);
-  this.options.call(this.program);
+  this.command.call(this.program);
+  this.option.call(this.program);
 }
 
 /**
@@ -35,12 +35,12 @@ Interface.prototype.use = function(){}
 /**
  *  Configure command options, scope is the program.
  */
-Interface.prototype.commands = function(){}
+Interface.prototype.command = function(){}
 
 /**
  *  Configure argument options, scope is the program.
  */
-Interface.prototype.options = function(){}
+Interface.prototype.option = function(){}
 
 /**
  *  Parse the program arguments, proxies to the program instance.

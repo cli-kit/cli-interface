@@ -21,12 +21,12 @@ SubClass.prototype.use = function() {
   expect(this.use()).to.equal(this);
 }
 
-SubClass.prototype.commands = function() {
+SubClass.prototype.command = function() {
   expect(this.command).to.be.a('function');
   expect(this.command('mock', 'mock command')).to.equal(this);
 }
 
-SubClass.prototype.options = function() {
+SubClass.prototype.option = function() {
   expect(this.option).to.be.a('function');
   expect(this.option('--mock-flag',
     'mock flag option')).to.equal(this);

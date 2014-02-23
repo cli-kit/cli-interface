@@ -22,7 +22,6 @@ Create a subclass of the `Interface` class to create the library file (main.js):
 
 ```javascript
 var util = require('util');
-var cli = require('cli-command');
 var Interface = require('cli-interface').Interface;
 
 var Main = function() {
@@ -42,11 +41,11 @@ Main.prototype.use = function() {
   this.use(cli.middleware.color);
 }
 
-Main.prototype.commands = function() {
+Main.prototype.command = function() {
   // configure command options here, eg: this.command(...)
 }
 
-Main.prototype.options = function() {
+Main.prototype.option = function() {
   // configure argument options here, eg: this.option(...)
 }
 
@@ -65,6 +64,57 @@ program.parse();
 ```
 
 Just `require` your main file (main.js) and pass an arguments array to `parse()` to assert on your program's behaviour.
+
+## API
+
+### ([pkg], [name], [description])
+
+Create an `Interface` instance.
+
+* `pkg`: A package object or string path to `package.json`.
+* `name`: The program name.
+* `description`: The program description.
+
+Returns an `Interface` instance.
+
+### Interface
+
+The `Interface` class is an abstraction that encapsulates a `CommandProgram`
+instance assigned to the `program` property.
+
+#### Interface([pkg], [name], [description])
+
+Create an `Interface` instance.
+
+* `pkg`: A package object or string path to `package.json`.
+* `name`: The program name.
+* `description`: The program description.
+
+#### configure()
+
+Invoked by the constructor to configure the program, scope is the `CommandProgram`, you should call `this.configure({...})` within this method to configure the program.
+
+#### use()
+
+Invoked by the constructor to configure middleware for the program, scope is the `CommandProgram`, you should call `this.use()` within this method to configure the program middleware.
+
+#### command()
+
+Invoked by the constructor to configure command options for the program, scope is the `CommandProgram`, you should call `this.command()` within this method to configure the program command options.
+
+#### option()
+
+Invoked by the constructor to configure argument options for the program, scope is the `CommandProgram`, you should call `this.option()` within this method to configure the program argument options.
+
+#### parse([args])
+
+Proxies to the `parse()` method of the program.
+
+* `args`: An array of arguments to pass to the program, default is `process.argv.slice(2)`.
+
+#### program
+
+A reference to the encapsulated `CommandProgram` instance.
 
 ## License
 
