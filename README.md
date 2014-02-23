@@ -49,6 +49,10 @@ Main.prototype.option = function() {
   // configure argument options here, eg: this.option(...)
 }
 
+Main.prototype.on = function() {
+  // configure events here, eg: this.on(...), this.once(...) etc.
+}
+
 module.exports = function(pkg, name, description) {
   return new Main(pkg, name, description);
 }

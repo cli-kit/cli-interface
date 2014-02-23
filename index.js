@@ -20,6 +20,7 @@ var Interface = function(pkg, name, description) {
   this.use.call(this.program);
   this.command.call(this.program);
   this.option.call(this.program);
+  this.on.call(this.program);
 }
 
 /**
@@ -43,6 +44,11 @@ Interface.prototype.command = function(){}
 Interface.prototype.option = function(){}
 
 /**
+ *  Configure events, scope is the program.
+ */
+Interface.prototype.on = function(){}
+
+/**
  *  Parse the program arguments, proxies to the program instance.
  */
 Interface.prototype.parse = function() {
@@ -52,4 +58,6 @@ Interface.prototype.parse = function() {
 module.exports = function(pkg, name, description) {
   return new Interface(pkg, name, description);
 }
+
 module.exports.Interface = Interface;
+module.exports.cli = cli;
