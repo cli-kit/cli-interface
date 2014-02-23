@@ -1,0 +1,64 @@
+var util = require('util');
+var expect = require('chai').expect;
+var interface = require('../..');
+var Interface = interface.Interface;
+var cli = require('cli-command');
+var CommandProgram = cli.CommandProgram;
+
+var SubClass = function() {
+  Interface.apply(this, arguments);
+}
+
+util.inherits(SubClass, Interface);
+
+SubClass.prototype.configure = function() {
+  expect(this.configure).to.be.a('function');
+  expect(this.configure({})).to.equal(this);
+}
+
+SubClass.prototype.use = function() {
+  expect(this.use).to.be.a('function');
+  expect(this.use()).to.equal(this);
+}
+
+SubClass.prototype.commands = function() {
+  expect(this.command).to.be.a('function');
+  expect(this.command('mock', 'mock command')).to.equal(this);
+}
+
+SubClass.prototype.options = function() {
+  expect(this.option).to.be.a('function');
+  expect(this.option('--mock-flag',
+    'mock flag option')).to.equal(this);
+  expect(this.option('--mock-argument=[value]',
+    'mock flag argument')).to.equal(this);
+}
+
+describe('cli-interface:', function() {
+  it('should create interface (module)', function(done) {
+    var prg = interface(null, 'mock-interface-program');
+    expect(prg).to.be.instanceof(Interface);
+    expect(prg.program).to.be.instanceof(CommandProgram);
+    done();
+  });
+  it('should create interface (class)', function(done) {
+    var prg = new Interface(null, 'mock-interface-instance');
+    expect(prg).to.be.instanceof(Interface);
+    expect(prg.program).to.be.instanceof(CommandProgram);
+    done();
+  });
+  it('should create subclass', function(done) {
+    var prg = new SubClass(null, 'mock-subclass-instance');
+    expect(prg).to.be.instanceof(Interface);
+    expect(prg).to.be.instanceof(SubClass);
+    expect(prg.program).to.be.instanceof(CommandProgram);
+    expect(prg.program._commands.mock).to.be.an('object');
+    expect(prg.program._options.mockFlag).to.be.an('object');
+    expect(prg.program._options.mockArgument).to.be.an('object');
+    var args = ['--mock-flag', '--mock-argument=value'];
+    prg.parse(args);
+    expect(prg.program.mockFlag).to.eql(true);
+    expect(prg.program.mockArgument).to.eql('value');
+    done();
+  });
+});

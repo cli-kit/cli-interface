@@ -1,0 +1,37 @@
+{
+  "name": "cli-interface",
+  "version": "0.0.1",
+  "description": "Interface to decouple executables from library code (cli command)",
+  "author": "muji <noop@xpm.io>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/freeformsystems/cli-interface"
+  },
+  "bugs": {
+    "url": "https://github.com/freeformsystems/cli-interface/issues"
+  },
+  "licenses": [{
+    "type": "MIT",
+    "url": "https://github.com/freeformsystems/cli-interface/blob/master/LICENSE"
+  }],
+  "keywords": [
+    "cli",
+    "command",
+    "interface",
+    "test",
+    "decouple"
+  ],
+  "dependencies": {
+    "cli-command": "~0.8.7"
+  },
+  "devDependencies": {
+    "mocha": "~1.17.0",
+    "chai": "~1.8.1",
+    "istanbul": "~0.2.4"
+  },
+  "engine": [ "node >= 0.10.21" ],
+  "scripts": {
+    "test": "istanbul cover _mocha -- -u bdd --recursive --reporter list -A test/unit/"
+  },
+  "config" : {}
+}
