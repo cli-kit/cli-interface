@@ -49,6 +49,13 @@ CommandInterface.prototype.option = function(){}
 CommandInterface.prototype.on = function(){}
 
 /**
+ *  Load a program definition, proxies to the program instance.
+ */
+CommandInterface.prototype.load = function() {
+  return this.program.load.apply(this.program, arguments);
+}
+
+/**
  *  Parse the program arguments, proxies to the program instance.
  */
 CommandInterface.prototype.parse = function() {
