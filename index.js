@@ -14,7 +14,7 @@ var cli = require('cli-command');
  *  @param name The program name.
  *  @param description The program description.
  */
-var Interface = function(pkg, name, description) {
+var CommandInterface = function(pkg, name, description) {
   this.program = cli(pkg, name, description);
   this.configure.call(this.program);
   this.use.call(this.program);
@@ -26,38 +26,34 @@ var Interface = function(pkg, name, description) {
 /**
  *  Configure the program, scope is the program.
  */
-Interface.prototype.configure = function(){}
+CommandInterface.prototype.configure = function(){}
 
 /**
  *  Configure middleware, scope is the program.
  */
-Interface.prototype.use = function(){}
+CommandInterface.prototype.use = function(){}
 
 /**
  *  Configure command options, scope is the program.
  */
-Interface.prototype.command = function(){}
+CommandInterface.prototype.command = function(){}
 
 /**
  *  Configure argument options, scope is the program.
  */
-Interface.prototype.option = function(){}
+CommandInterface.prototype.option = function(){}
 
 /**
  *  Configure events, scope is the program.
  */
-Interface.prototype.on = function(){}
+CommandInterface.prototype.on = function(){}
 
 /**
  *  Parse the program arguments, proxies to the program instance.
  */
-Interface.prototype.parse = function() {
+CommandInterface.prototype.parse = function() {
   return this.program.parse.apply(this.program, arguments);
 }
 
-module.exports = function(pkg, name, description) {
-  return new Interface(pkg, name, description);
-}
-
-module.exports.Interface = Interface;
+module.exports.CommandInterface = CommandInterface;
 module.exports.cli = cli;

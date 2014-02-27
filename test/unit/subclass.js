@@ -1,29 +1,22 @@
 var util = require('util');
 var expect = require('chai').expect;
-var interface = require('../..');
-var Interface = interface.Interface;
+var CommandInterface = require('../..').CommandInterface;
 var cli = require('cli-command');
 var CommandProgram = cli.CommandProgram;
 
 
 describe('cli-interface:', function() {
-  it('should create interface (module)', function(done) {
-    var prg = interface(null, 'mock-interface-program');
-    expect(prg).to.be.instanceof(Interface);
-    expect(prg.program).to.be.instanceof(CommandProgram);
-    done();
-  });
   it('should create interface (class)', function(done) {
-    var prg = new Interface(null, 'mock-interface-instance');
-    expect(prg).to.be.instanceof(Interface);
+    var prg = new CommandInterface(null, 'mock-interface-instance');
+    expect(prg).to.be.instanceof(CommandInterface);
     expect(prg.program).to.be.instanceof(CommandProgram);
     done();
   });
   it('should create subclass', function(done) {
     var SubClass = function() {
-      Interface.apply(this, arguments);
+      CommandInterface.apply(this, arguments);
     }
-    util.inherits(SubClass, Interface);
+    util.inherits(SubClass, CommandInterface);
 
     SubClass.prototype.configure = function() {
       expect(this.configure).to.be.a('function');
@@ -57,7 +50,7 @@ describe('cli-interface:', function() {
     }
 
     var prg = new SubClass(null, 'mock-subclass-instance');
-    expect(prg).to.be.instanceof(Interface);
+    expect(prg).to.be.instanceof(CommandInterface);
     expect(prg).to.be.instanceof(SubClass);
     expect(prg.program).to.be.instanceof(CommandProgram);
     expect(prg.program._commands.mock).to.be.an('object');
