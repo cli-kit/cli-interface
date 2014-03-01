@@ -24,7 +24,7 @@
     "decouple"
   ],
   "dependencies": {
-    "cli-command": "~0.8.30"
+    "cli-command": "~0.8.31"
   },
   "devDependencies": {
     "mocha": "~1.17.0",
