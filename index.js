@@ -13,9 +13,10 @@ var cli = require('cli-command');
  *  @param pkg The package descriptor, object or string.
  *  @param name The program name.
  *  @param description The program description.
+ *  @param clazz A Program subclass to instantiate.
  */
-var CommandInterface = function(pkg, name, description) {
-  this.program = cli(pkg, name, description);
+var CommandInterface = function(pkg, name, description, clazz) {
+  this.program = cli(pkg, name, description, clazz);
   this.configure.call(this.program);
   this.use.call(this.program);
   this.command.call(this.program);
