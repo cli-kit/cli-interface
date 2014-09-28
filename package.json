@@ -1,6 +1,6 @@
 {
   "name": "cli-interface",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Interface to decouple executables from library code",
   "author": "muji <noop@xpm.io>",
   "repository": {
