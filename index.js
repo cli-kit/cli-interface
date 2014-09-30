@@ -1,4 +1,11 @@
-var cli = require('cli-command');
+var cli;
+
+try {
+  cli = require('cli-command');
+}catch(e) {
+  console.error('interface requires command, depend upon cli-command');
+  throw e;
+}
 
 /**
  *  Abstract program interface.

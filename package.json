@@ -23,14 +23,11 @@
     "test",
     "decouple"
   ],
-  "peerDependencies": {
-    "cli-command": "^0.8.253"
-  },
   "devDependencies": {
-    "cli-command": "^0.8.253",
-    "mocha": "~1.17.0",
     "chai": "~1.8.1",
-    "istanbul": "~0.2.4"
+    "cli-command": "^0.8.279",
+    "istanbul": "~0.2.4",
+    "mocha": "~1.17.0"
   },
   "engine": [
     "node >= 0.10.21"
