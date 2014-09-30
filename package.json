@@ -38,5 +38,8 @@
   "scripts": {
     "test": "istanbul cover _mocha -- -u bdd --recursive --reporter list -A test/unit/"
   },
-  "config": {}
+  "config": {},
+  "dependencies": {
+    "cli-command": "^0.8.273"
+  }
 }
