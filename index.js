@@ -63,5 +63,8 @@ CommandInterface.prototype.parse = function() {
   return this.program.parse.apply(this.program, arguments);
 }
 
+module.exports = CommandInterface;
+
+// legacy, do not use, will be removed
 module.exports.CommandInterface = CommandInterface;
 module.exports.cli = cli;
