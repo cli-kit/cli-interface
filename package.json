@@ -24,10 +24,10 @@
     "decouple"
   ],
   "devDependencies": {
-    "chai": "~1.8.1",
+    "chai": "~3.2.0",
     "cli-command": "^0.8.279",
-    "istanbul": "~0.2.4",
-    "mocha": "~1.17.0"
+    "istanbul": "~0.3.17",
+    "mocha": "~2.2.5"
   },
   "engine": [
     "node >= 0.10.21"
@@ -37,6 +37,6 @@
   },
   "config": {},
   "dependencies": {
-    "cli-command": "^0.8.273"
+    "cli-command": "~0.8.298"
   }
 }
