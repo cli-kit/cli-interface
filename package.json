@@ -37,6 +37,6 @@
   },
   "config": {},
   "dependencies": {
-    "cli-command": "~0.8.298"
+    "cli-command": "~0.8.299"
   }
 }
